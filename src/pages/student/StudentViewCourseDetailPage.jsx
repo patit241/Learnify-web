@@ -249,7 +249,7 @@ function StudentViewCourseDetailPage() {
     return <div className='container mx-auto p-4' >
         <div className='bg-gray-900 text-white p-8 rounded-t-lg ' >
             <h1 className='text-3xl font-bold mb-4 ' >{studentViewCourseDetails?.title}</h1>
-            <p className='text-xl mb-4 ' > {studentViewCourseDetails?.subtitle} </p>
+            {/* <p className='text-xl mb-4 ' > {studentViewCourseDetails?.subtitle} </p> */}
             <div className='flex items-center space-x-4 mt-2 text-sm ' >
                 <span> Created By {studentViewCourseDetails?.instructorName} </span>
                 <span> Created On {studentViewCourseDetails?.date.split('T')[0]} </span>
@@ -352,47 +352,48 @@ function StudentViewCourseDetailPage() {
         <hr class=" mt-8 border-t border-gray-300 my-4" />
         <h2 className='font-bold text-3xl pb-6  ' >Other Course</h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
-            {
-                courseList.map((courseItem, index) => {
-                    // Get cart data from localStorage
-                    const cartData = JSON.parse(localStorage.getItem("cartData")) || {};
-                    const cartKey = user ? user.id : "guest";
-                    const userCart = cartData[cartKey] || [];
+    {
+        courseList.slice(0, 8).map((courseItem, index) => {
+            // Get cart data from localStorage
+            const cartData = JSON.parse(localStorage.getItem("cartData")) || {};
+            const cartKey = user ? user.id : "guest";
+            const userCart = cartData[cartKey] || [];
 
-                    // Check if the course is already in the cart
-                    const isInCart = userCart.some((cartItem) => cartItem.courseId === courseItem.id);
+            // Check if the course is already in the cart
+            const isInCart = userCart.some((cartItem) => cartItem.courseId === courseItem.id);
 
-                    return (
-                        <div
-                            onClick={() => handleCourseNavigate(courseItem?.id)}
-                            className="border rounded-lg overflow-hidden shadow cursor-pointer"
-                            key={index}
-                        >
-                            <img
-                                src={courseItem?.image}
-                                width={300}
-                                height={150}
-                                className="w-full h-40 object-cover"
-                            />
-                            <div className="p-4">
-                                <h3 className="font-bold mb-2">{courseItem.title}</h3>
-                                <p className="text-sm text-gray-700 mb-2">{courseItem?.instructorName}</p>
+            return (
+                <div
+                    onClick={() => handleCourseNavigate(courseItem?.id)}
+                    className="border rounded-lg overflow-hidden shadow cursor-pointer"
+                    key={index}
+                >
+                    <img
+                        src={courseItem?.image}
+                        width={300}
+                        height={150}
+                        className="w-full h-40 object-cover"
+                    />
+                    <div className="p-4">
+                        <h3 className="font-bold mb-2">{courseItem.title}</h3>
+                        <p className="text-sm text-gray-700 mb-2">{courseItem?.instructorName}</p>
 
-                                {/* Display "Already Bought" if the user owns it */}
-                                {courseItem.studentCourses.some((el) => el.userId === user?.id) ? (
-                                    <p className="text-green-600">Already Bought</p>
-                                ) : (
-                                    <p className="font-bold text-lg">
-                                        ${courseItem?.pricing}{" "}
-                                        {isInCart && <span className="text-yellow-600 text-sm">(Already in Cart)</span>}
-                                    </p>
-                                )}
-                            </div>
-                        </div>
-                    );
-                })
-            }
-        </div>
+                        {/* Display "Already Bought" if the user owns it */}
+                        {courseItem.studentCourses.some((el) => el.userId === user?.id) ? (
+                            <p className="text-green-600">Already Bought</p>
+                        ) : (
+                            <p className="font-bold text-lg">
+                                ${courseItem?.pricing}{" "}
+                                {isInCart && <span className="text-yellow-600 text-sm">(Already in Cart)</span>}
+                            </p>
+                        )}
+                    </div>
+                </div>
+            );
+        })
+    }
+</div>
+
         <Dialog open={showFreePreviewDialog} onOpenChange={() => {
             setShowFreePreviewDialog(false)
             setDisplayCurrentVideoFreePreview(null)

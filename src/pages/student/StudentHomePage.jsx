@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import banner from '../../components/pic/banner-img.png'
-import pic from '../../components/pic/40155.jpg'
-import dog from '../../components/pic/dog.jpg'
+import pic from '../../components/pic/promo1.png'
+import dog from '../../components/pic/promo2.png'
 import { Button } from "@/components/ui/button";
 import studentContext from '@/context/student-context/studentContext';
 import useAuthStore from '@/store/auth-store';

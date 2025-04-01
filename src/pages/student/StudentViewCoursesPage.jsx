@@ -252,7 +252,7 @@ function StudentViewCoursesPage() {
                 return (
                   <Card onClick={() => handleCourseNavigate(courseItem?.id)} className="cursor-pointer" key={courseItem?.id}>
                     <CardContent className="flex gap-4 p-4">
-                      <div className="w-48 h-32 flex-shrink-0">
+                      <div className="w-44 h-32 ">
                         <img
                           src={courseItem?.image}
                           className="w-full h-full object-cover"
@@ -266,6 +266,7 @@ function StudentViewCoursesPage() {
                           Created By{" "}
                           <span className="font-bold">{courseItem?.instructorName}</span>
                         </p>
+                        {/* <p>{courseItem?.category}</p> */}
                         <p className="text-[18px] text-gray-600 mb-2 mt-3">
                           {`${courseItem.lectures?.length} 
                   ${courseItem.lectures?.length <= 1 ? 'Lecture' : 'Lectures'} - 
@@ -276,8 +277,8 @@ function StudentViewCoursesPage() {
                         {courseItem.studentCourses.some((el) => el.userId === user?.id) ? (
                           <p className="text-green-600">Already Bought</p>
                         ) : (
-                          <p className="font-bold text-lg">
-                            ${courseItem?.pricing}{" "}
+                          <p className="  font-bold text-lg">
+                             ${courseItem?.pricing}{" "}
                             {isInCart && <span className="text-yellow-600 text-sm">(Already in Cart)</span>}
                           </p>
                         )}

@@ -48,7 +48,7 @@ const ImageSlider = ({ images }) => {
           <motion.img
             src={images[currentIndex]}
             alt="Slide"
-            className="w-full h-full object-cover"
+            className="w-full h-full "
           />
         </motion.div>
       </AnimatePresence>
