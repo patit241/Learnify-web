@@ -1,9 +1,6 @@
-import { addNewCourseService, CreateCourseService, fetchInstructorCourseDetailsService, updateCourseByIdService } from "@/api/course";
-import CourseCurriculum from "@/components/instructor-view/courses/manage-course/CourseCurriculum";
+import {  fetchInstructorCourseDetailsService, updateCourseByIdService } from "@/api/course";
 import CourseCurriculum2 from "@/components/instructor-view/courses/manage-course/CourseCurriculum2";
-import CourseLanding from "@/components/instructor-view/courses/manage-course/CourseLanding";
 import CourseLanding2 from "@/components/instructor-view/courses/manage-course/CourseLanding2";
-import CourseSettings from "@/components/instructor-view/courses/manage-course/CourseSetting";
 import CourseSettings2 from "@/components/instructor-view/courses/manage-course/CourseSetting2";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";

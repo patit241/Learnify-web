@@ -19,13 +19,14 @@ function StudentNav() {
 
     return (
         <header className='flex items-center justify-between p-4 border-b relative' >
-            <div className='flex - items-center space-x-4' >
+            <div className='flex items-center space-x-4' >
                 <Link to="/" className='flex items-center hover:text-black ' >
                     <img src="./logo.png" width={'44px'} alt="" />
                     <span className='font-extrabold md:text-xl text-[14px]' >
                         Learnify
                     </span>
-                </Link>   <div className='flex items-center space-x-1' >
+                </Link>   
+                <div className='flex items-center space-x-1' >
 
                     <Button variant="ghost"
                         className="text-[14px] md:text=[16px] font-medium "

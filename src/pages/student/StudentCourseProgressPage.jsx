@@ -268,13 +268,17 @@ function StudentViewCourseProgressPage() {
                   <div className='p-4 space-y-4' >
                     {
                       studentCurrentCourseProgress?.courseDetails?.lectures.map(item =>
-                        <div className='flex items-center space-x-2 text-sm text-white font-bold cursor-pointer' key={item.id} >
-                          {
-                            studentCurrentCourseProgress?.progress?.find(progressItem => progressItem.lectureId === item.id)?.viewed ?
-                              <Check className='h-4 w-4 text-green-500' /> : <Play className='h-4 w-4' />
-                          }
-                          <span>{item?.title}</span>
-                        </div>
+                        <div
+                        className='flex items-center space-x-2 text-sm text-white font-bold cursor-pointer'
+                        key={item.id}
+                        onClick={() => setCurrentLecture(item)} // Add this line to update state
+                      >
+                        {studentCurrentCourseProgress?.progress?.find(progressItem => progressItem.lectureId === item.id)?.viewed
+                          ? <Check className='h-4 w-4 text-green-500' />
+                          : <Play className='h-4 w-4' />
+                        }
+                        <span>{item?.title}</span>
+                      </div>
                       )
                     }
                   </div>

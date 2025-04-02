@@ -103,7 +103,7 @@ function handleDeleteLecture(currentIndex) {
   return <Card>
       <CardHeader className="flex flex-row justify-between" >
           <CardTitle>
-              Create Course Curriculuma2222
+              Create Course Curriculum
           </CardTitle>
 
       </CardHeader>

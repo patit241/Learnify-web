@@ -255,7 +255,7 @@ function StudentViewCoursesPage() {
                       <div className="w-44 h-32 ">
                         <img
                           src={courseItem?.image}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full "
                         />
                       </div>
                       <div className="flex-1">
